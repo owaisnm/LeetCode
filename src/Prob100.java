@@ -13,6 +13,11 @@ public class Prob100 {
 		}
 	}
 
+	/*
+	 * method: iterative
+	 * time: O(n): n
+	 * space: O(n): n
+	 */
 	public boolean isSameTree(TreeNode p, TreeNode q) {
 
 		if (p == null || q == null) {
