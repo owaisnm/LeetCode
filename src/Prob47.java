@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Prob47 {
 	
-    public List<List<Integer>> permute(int[] nums) {
+    public List<List<Integer>> permuteUnique(int[] nums) {
     	
     	List<List<Integer>> solutionList = new ArrayList<List<Integer>>();
     	boolean visited[] = new boolean[nums.length];
