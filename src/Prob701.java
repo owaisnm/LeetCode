@@ -1,5 +1,3 @@
-import Prob654.TreeNode;
-
 public class Prob701 {
 	public class TreeNode {
 	      int val;
