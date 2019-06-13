@@ -7,6 +7,8 @@ public class Prob234 {
 		      ListNode next;
 		      ListNode(int x) { val = x; }
 		  }
+	
+	// space: O(n), time: O(n)
 	  public boolean isPalindrome(ListNode head) {
 	        List<Integer> list = new ArrayList<>();
 	        ListNode cursor = head;
@@ -23,4 +25,7 @@ public class Prob234 {
 	        }
 	        return true;
 	    }
+//	  public boolean isPalindromeOptimal(ListNode head) {
+
+	 
 }
