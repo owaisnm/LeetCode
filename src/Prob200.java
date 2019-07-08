@@ -23,8 +23,7 @@ public class Prob200 {
             numIslands(i, j-1, grid);
             numIslands(i, j+1, grid);
             return true;
-        } else {
-            return false;
-        }
+        } 
+        return false;
     }
 }
