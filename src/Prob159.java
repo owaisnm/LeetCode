@@ -7,7 +7,7 @@ public class Prob159 {
             return 1;
         } else if(s.length() == 2) {
             return 2;
-        }
+        }	
         
         int i1, i2;
         i1 = 0;
