@@ -20,4 +20,5 @@ public class Prob3 {
 	            maxLength = Math.max(maxLength, length);
 	        }
 	        return maxLength;
+	}
 }
