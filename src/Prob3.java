@@ -1,32 +1,23 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
 
 public class Prob3 {
 	public int lengthOfLongestSubstring(String s) {
-        Set<Character> set = new HashSet<>();
-        char curr;
-        int length;
-        int lengthOfLongestSubstring = 0;
-        int i = 0;
-        while(i < s.length()) {
-            length = 0;
-            while(i < s.length() && !set.contains(s.charAt(i))) {
-                set.add(s.charAt(i));
-                length++;
-                i++;
-            }
-            
-            if(i < s.length()) {
-                curr = s.charAt(i);
-                set.clear();
-                i--;
-
-                while(i > 0 && s.charAt(i) != curr) i--;   
-                i++;
-            }
-            if(length > lengthOfLongestSubstring) lengthOfLongestSubstring = length;
-            set.clear();
-        }
-        return lengthOfLongestSubstring;
-    }
+	        HashMap<Character, Integer> map = new HashMap<>();
+	        int maxLength = 0;
+	        int length = 0;
+	        int start = 0;
+	        for(int i = 0; i < s.length(); i++) {
+	            Integer index = map.get(s.charAt(i));
+	            map.put(s.charAt(i),i);
+	            if(index != null) {
+	                if(index.intValue() >= start) {
+	                    start = index.intValue();                    
+	                }
+	                length = i - start;
+	            } else {
+	                length++;
+	            }
+	            maxLength = Math.max(maxLength, length);
+	        }
+	        return maxLength;
 }
