@@ -2,23 +2,43 @@ import java.util.Arrays;
 
 public class Prob16 {
 	
-	// brute force 
-	// time: T(n) = O(n^3)
-	// space: S(n) = O(1)
+	// use 3sum technique
 	public int threeSumClosest(int[] nums, int target) {
-        int closest = Integer.MAX_VALUE - target;
-        int closestToZero = Integer.MAX_VALUE;
-        int x, y, z;
-        for(int i = 0; i < nums.length - 2; i++) {
-            for(int j = i+1; j < nums.length - 1; j++) {
-                for(int k = j+1; k < nums.length; k++) {
-                    if(Math.abs( (nums[i] + nums[j] + nums[k] - target)) < closestToZero) {
-                        closestToZero = Math.abs(nums[i] + nums[j] + nums[k] - target);
-                        closest = nums[i] + nums[j] + nums[k];
+		int minDiff = Integer.MAX_VALUE;
+        int minSum = Integer.MAX_VALUE;
+        int diff;
+        int sum;
+        int i, left, right;
+        i = 0;
+        
+        Arrays.sort(nums);
+        while(i < nums.length - 2) {
+            left = i+1;
+            right = nums.length - 1;
+            while(left < right) {
+                sum = nums[i] + nums[left] + nums[right];
+                diff = Math.abs(sum - target);
+                if(diff < minDiff) {
+                    minDiff = diff;
+                    minSum = sum;
+                    if(minDiff == 0) {
+                        return minSum;
                     }
                 }
+                if(sum < target) {
+                    left++;
+                    while(left < right && nums[left-1] == nums[left])
+                       left++;
+                } else {
+                    right--;
+                    while(left < right && nums[right] == nums[right+1])
+                        right--;
+                }
             }
+            i++;
+            while(i < nums.length - 2 && nums[i-1] == nums[i]) 
+                i++;
         }
-        return closest;
+        return minSum;
     }
 }
